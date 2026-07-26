@@ -1,17 +1,17 @@
-TOP DECK OS V7.2.2 — POLISH UPDATE
+TOP DECK OS V7.3.0 — OPERATIONS CENTER
 
 Upload these files directly into the existing admin-portal folder:
 - index.html
-- admin-v7.2.2.js
+- admin-v7.3.0.js
 - README.txt
 
-Highlights:
-- Click missing checklist items to jump to the matching field
-- Clear “Next action” owner and task
-- Unsaved-changes button state
-- ISRC/UPC validation when Artist Provided is selected
-- Typing a code automatically changes Pending to Artist Provided
-- Confirmation before sending a release to distribution
-- V7.2.2 branding
+New in V7.3.0:
+- Command Center dashboard
+- Priority Actions list
+- Workflow Snapshot
+- Master Catalog table
+- Catalog search and filters
+- One-click access to Release Workspace
 
-No new SQL migration is required for this polish update.
+No new Supabase SQL is required for this sprint.
+After committing, wait for Netlify deployment and hard refresh the admin portal.
