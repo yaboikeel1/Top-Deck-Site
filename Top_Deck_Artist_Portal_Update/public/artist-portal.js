@@ -1,0 +1,1 @@
+console.log('Artist Portal Loaded');

@@ -1,0 +1,1 @@
+Copy the files from the public folder into your repository's public folder, commit, and Netlify will redeploy.
