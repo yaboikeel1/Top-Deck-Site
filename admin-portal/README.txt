@@ -1,16 +1,24 @@
-TOP DECK OS V7.1 — FLAT GITHUB UPLOAD
+TOP DECK OS V7.2.1 — FLAT UPLOAD PACKAGE
 
-Upload index.html and admin-v7.1.js directly into:
-Top-Deck-Site/admin-portal/
+Upload all files directly into your existing admin-portal folder.
+Do not create another nested folder.
 
-Do not upload the containing folder.
-Replace the existing index.html when GitHub prompts you.
-Keep admin-v7.js as a rollback backup.
+Files:
+- index.html
+- admin-v7.2.1.js
 
-The new index.html loads:
-<script src="admin-v7.1.js"></script>
+Required Supabase columns:
+- topdeck_release_id
+- workflow_status
+- artist_completion
+- label_completion
+- isrc_source
+- upc_source
+- copyright_review_complete
+- distribution_approved
 
-Commit message:
-Deploy Top Deck OS V7.1 Release Readiness
-
-After Netlify deploys, hard refresh with Ctrl+F5.
+ISRC/UPC choices:
+- existing: code must be entered
+- top_deck: counts as handled; Top Deck will assign
+- not_required: bypass for now
+- pending: remains incomplete
