@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Top Deck OS V7.2.1 | Label Workflow Engine</title>
+  <title>Top Deck OS V7.2.2 | Label Workflow Engine</title>
   <style>
     :root{
       --bg:#070707;--panel:#111;--panel2:#181818;--line:#2c2c2c;
@@ -125,6 +125,11 @@
     .readiness-state{margin-top:10px;font-weight:800}
     .checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}
     .check-item{display:flex;gap:9px;align-items:center;padding:9px 10px;border:1px solid #303030;border-radius:10px;background:#0c0c0c;color:var(--muted)}
+    .check-item.clickable{cursor:pointer;transition:transform .15s ease,border-color .15s ease;background .15s ease}
+    .check-item.clickable:hover{transform:translateY(-1px);border-color:var(--gold);background:rgba(255,204,51,.07)}
+    .jump-hint{margin-left:auto;color:var(--gold);font-size:.75rem;font-weight:900}
+    .next-action{margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09)}
+    .primary.has-changes{box-shadow:0 0 0 3px rgba(255,204,51,.18)}
     .check-item.complete{border-color:#2d7442;color:#d8ffe1;background:#102117}.check-icon{font-weight:900}
     .metadata-panel{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
     .metadata-panel h3{margin:0 0 5px;color:var(--gold2)}
@@ -172,7 +177,7 @@
   <header class="topbar">
     <div class="brand">
       <h1>Top Deck Music Group</h1>
-      <p>Top Deck OS V7.2.1 • Label Workflow Engine</p>
+      <p>Top Deck OS V7.2.2 • Label Workflow Engine</p>
     </div>
     <nav class="nav">
       <a href="../index.html">Main Site</a>
@@ -182,7 +187,7 @@
   </header>
 
   <section class="hero">
-    <span class="badge">TOP DECK OS V7.2.1</span>
+    <span class="badge">TOP DECK OS V7.2.2</span>
     <h2>Control the roster. Move the releases. Build the legacy.</h2>
   </section>
 
@@ -343,6 +348,7 @@
               </div>
               <div class="progress-track" aria-hidden="true"><div id="workspaceReadinessFill" class="progress-fill"></div></div>
               <div id="workspaceReadinessState" class="readiness-state">Open a release to calculate readiness.</div>
+              <div id="workspaceNextAction" class="next-action"><strong>Next action:</strong> Open a release.</div>
               <div id="workspaceChecklist" class="checklist"></div>
             </section>
 
@@ -403,7 +409,7 @@
               <div class="full"><label>Admin Notes</label><textarea id="workspaceAdminNotes" placeholder="Internal distribution notes..."></textarea></div>
             </div>
             <div class="release-actions">
-              <button id="saveWorkspaceBtn" class="primary">Save V7.2 Update</button>
+              <button id="saveWorkspaceBtn" class="primary">Saved</button>
               <button id="sendDistributionBtn" class="secondary send-button" disabled>🚀 Send to Distribution</button>
             </div>
             <div id="workspaceStatus" class="notice">No release selected.</div>
@@ -416,6 +422,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase-config.js"></script>
-<script src="admin-v7.2.1.js"></script>
+<script src="admin-v7.2.2.js"></script>
 </body>
 </html>

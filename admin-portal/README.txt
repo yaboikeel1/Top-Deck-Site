@@ -1,24 +1,17 @@
-TOP DECK OS V7.2.1 — FLAT UPLOAD PACKAGE
+TOP DECK OS V7.2.2 — POLISH UPDATE
 
-Upload all files directly into your existing admin-portal folder.
-Do not create another nested folder.
-
-Files:
+Upload these files directly into the existing admin-portal folder:
 - index.html
-- admin-v7.2.1.js
+- admin-v7.2.2.js
+- README.txt
 
-Required Supabase columns:
-- topdeck_release_id
-- workflow_status
-- artist_completion
-- label_completion
-- isrc_source
-- upc_source
-- copyright_review_complete
-- distribution_approved
+Highlights:
+- Click missing checklist items to jump to the matching field
+- Clear “Next action” owner and task
+- Unsaved-changes button state
+- ISRC/UPC validation when Artist Provided is selected
+- Typing a code automatically changes Pending to Artist Provided
+- Confirmation before sending a release to distribution
+- V7.2.2 branding
 
-ISRC/UPC choices:
-- existing: code must be entered
-- top_deck: counts as handled; Top Deck will assign
-- not_required: bypass for now
-- pending: remains incomplete
+No new SQL migration is required for this polish update.
