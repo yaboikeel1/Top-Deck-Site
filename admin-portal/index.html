@@ -1,29 +1,222 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Top Deck Admin V5</title>
-<style>
-:root{--bg:#080808;--panel:#141414;--line:#303030;--gold:#f1c84c;--text:#fff;--muted:#aaa}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#2b2108,#080808 35%);color:var(--text);font-family:Arial,sans-serif}
-.wrap{max-width:1400px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}
-h1,h2,h3{margin-top:0}.brand{color:var(--gold)}a{color:var(--gold);text-decoration:none}.nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.hero{padding:34px 0}.hero h2{font-size:clamp(2rem,5vw,4.5rem);line-height:1;margin:8px 0}.badge{display:inline-block;padding:7px 11px;border-radius:999px;border:1px solid #765f22;color:var(--gold);font-weight:800}
-.card{background:linear-gradient(#191919,#101010);border:1px solid var(--line);border-radius:18px;padding:20px}.hidden{display:none!important}
-input,select,textarea,button{font:inherit}input,select,textarea{width:100%;background:#090909;color:#fff;border:1px solid #3b3b3b;border-radius:10px;padding:11px}
-textarea{min-height:80px;resize:vertical}button{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer}
-.primary{background:linear-gradient(135deg,#d8a92e,#f4d56f);color:#111}.secondary{background:#272727;color:#fff;border:1px solid #444}
-.notice{margin-top:14px;padding:12px;border-radius:10px;background:#202020;border:1px solid #333}.success{border-color:#2f7443}.error{border-color:#7b3636}
-.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(6,minmax(130px,1fr));margin-bottom:18px}.stat{background:#121212;border:1px solid var(--line);border-radius:14px;padding:16px}
-.stat strong{display:block;color:var(--gold);font-size:2rem}.toolbar{grid-template-columns:2fr 1fr auto;margin-bottom:16px}
-.release{display:grid;grid-template-columns:90px minmax(190px,1fr) minmax(230px,1fr) minmax(240px,1fr);gap:15px;padding:15px;background:#0c0c0c;border:1px solid var(--line);border-radius:14px}
-.cover{width:90px;height:90px;object-fit:cover;border-radius:11px;border:1px solid #3b3b3b;background:#1c1c1c}.placeholder{display:flex;align-items:center;justify-content:center;color:#777;font-size:.8rem;text-align:center}
-.artist{color:var(--gold);font-weight:800}.small{font-size:.9rem;color:var(--muted);line-height:1.45}audio{width:100%;margin-top:10px}.actions{display:grid;gap:9px}
-.login{max-width:650px}.pw{position:relative}.pw input{padding-right:128px}.pw button{position:absolute;right:6px;top:6px;padding:7px 10px;background:#2b2b2b;color:white;border:1px solid #555}
-@media(max-width:1050px){.stats{grid-template-columns:repeat(3,1fr)}.release{grid-template-columns:80px 1fr 1fr}.actions{grid-column:2/4}}
-@media(max-width:700px){.wrap{padding:14px}.top{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr}.release{grid-template-columns:70px 1fr}.review,.actions{grid-column:1/3}.cover{width:70px;height:70px}}
-</style></head><body><div class="wrap">
-<header class="top"><div><h1 class="brand">Top Deck Music Group</h1><div class="small">V5 Label Control Center</div></div><nav class="nav"><a href="../index.html">Main Site</a><a href="../artist-portal/">Artist Portal</a><button id="signOutBtn" class="secondary hidden">Sign Out</button></nav></header>
-<section class="hero"><span class="badge">ADMIN V5</span><h2>Control the label. Review releases. Move with purpose.</h2></section>
-<section id="loginCard" class="card login"><h2>Admin Login</h2><label>Email</label><input id="email" type="email"><label>Password</label><div class="pw"><input id="password" type="password"><button id="togglePassword" type="button">Show password</button></div><button id="loginBtn" class="primary" style="margin-top:15px">Sign In</button><div id="loginStatus" class="notice">Admin access is required.</div></section>
-<main id="dashboard" class="hidden">
-<section class="grid stats"><div class="stat"><span>Artists</span><strong id="artistCount">0</strong></div><div class="stat"><span>Pending</span><strong id="pendingCount">0</strong></div><div class="stat"><span>Approved</span><strong id="approvedCount">0</strong></div><div class="stat"><span>Needs Changes</span><strong id="changesCount">0</strong></div><div class="stat"><span>Rejected</span><strong id="rejectedCount">0</strong></div><div class="stat"><span>Total Releases</span><strong id="releaseCount">0</strong></div></section>
-<section class="card"><div class="grid toolbar"><input id="searchInput" placeholder="Search artist or release..."><select id="statusFilter"><option value="All">All statuses</option><option>Pending</option><option>Approved</option><option>Needs Changes</option><option>Rejected</option></select><button id="refreshBtn" class="secondary">Refresh</button></div><div id="releaseList" class="grid"></div><div id="adminStatus" class="notice">Loading dashboard...</div></section>
-</main></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../supabase-config.js"></script><script src="admin-v5.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>V6 Artist CRM | Top Deck Music Group</title>
+  <style>
+    :root{
+      --bg:#070707;--panel:#111;--panel2:#181818;--line:#2c2c2c;
+      --text:#f7f7f7;--muted:#aaa;--gold:#d7a82f;--gold2:#f5d269;
+      --green:#3eb36a;--red:#d95f5f;--blue:#5a8dee;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);
+      background:radial-gradient(circle at top,#251d09 0,#090909 34%);
+    }
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    a{color:var(--gold2);text-decoration:none}
+    .shell{max-width:1500px;margin:auto;padding:22px}
+    .topbar{
+      display:flex;justify-content:space-between;gap:18px;align-items:center;
+      border-bottom:1px solid var(--line);padding-bottom:18px
+    }
+    .brand h1{margin:0;color:var(--gold2);font-size:1.55rem}
+    .brand p{margin:5px 0 0;color:var(--muted)}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .hero{padding:34px 0 20px}
+    .hero h2{font-size:clamp(2rem,5vw,4.6rem);line-height:.98;margin:8px 0 14px}
+    .badge{
+      display:inline-block;padding:7px 11px;border-radius:999px;
+      background:rgba(215,168,47,.15);border:1px solid rgba(215,168,47,.45);
+      color:var(--gold2);font-weight:800;font-size:.8rem;letter-spacing:.09em
+    }
+    .hidden{display:none!important}
+    .card{
+      background:linear-gradient(180deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);border-radius:18px;padding:20px;
+      box-shadow:0 18px 55px rgba(0,0,0,.25)
+    }
+    .primary,.secondary{
+      border:0;border-radius:11px;padding:11px 16px;font-weight:800
+    }
+    .primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
+    .secondary{background:#242424;color:#fff;border:1px solid #444}
+    label{display:block;margin:13px 0 7px;font-weight:700}
+    input,select,textarea{
+      width:100%;background:#090909;color:#fff;border:1px solid #3a3a3a;
+      border-radius:10px;padding:11px 12px;outline:none
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+    textarea{min-height:90px;resize:vertical}
+    .password-wrap{position:relative}
+    .password-wrap input{padding-right:130px}
+    .show-password{
+      position:absolute;right:7px;top:7px;padding:7px 11px;border-radius:999px;
+      border:1px solid #555;background:#292929;color:#fff
+    }
+    .notice{
+      margin-top:14px;padding:12px 14px;background:#202020;border:1px solid #333;
+      border-radius:10px;color:#ddd
+    }
+    .notice.success{border-color:#2d7442;color:#d8ffe1}
+    .notice.error{border-color:#7b3434;color:#ffd4d4}
+    .stats{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:14px;margin-bottom:18px}
+    .stat{background:#121212;border:1px solid var(--line);border-radius:15px;padding:17px}
+    .stat span{color:var(--muted);font-size:.88rem}
+    .stat strong{display:block;color:var(--gold2);font-size:2rem;margin-top:5px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .tab.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
+    .toolbar{display:grid;grid-template-columns:2fr 1fr auto;gap:12px;margin-bottom:18px}
+    .artist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .artist-card{
+      border:1px solid var(--line);border-radius:16px;padding:16px;background:#0d0d0d
+    }
+    .artist-head{display:flex;gap:14px;align-items:center}
+    .artist-photo{
+      width:74px;height:74px;border-radius:50%;object-fit:cover;background:#1d1d1d;
+      border:2px solid #3a3a3a
+    }
+    .artist-photo.placeholder{display:flex;align-items:center;justify-content:center;color:#777;font-size:.78rem}
+    .artist-card h3{margin:0 0 4px}
+    .verified{color:var(--gold2);font-weight:800;font-size:.82rem}
+    .meta{color:var(--muted);font-size:.9rem;line-height:1.45;margin-top:10px}
+    .pill{
+      display:inline-block;padding:4px 9px;border-radius:999px;background:#262626;
+      font-size:.78rem;font-weight:800;margin:6px 5px 0 0
+    }
+    .detail-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
+    .profile-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .profile-form .full{grid-column:1/3}
+    .release-list{display:grid;gap:12px}
+    .release{
+      padding:13px;border:1px solid var(--line);border-radius:12px;background:#0c0c0c
+    }
+    .release strong{color:var(--gold2)}
+    .small{font-size:.88rem;color:var(--muted);line-height:1.45}
+    .empty{text-align:center;padding:34px;color:var(--muted)}
+    @media(max-width:900px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .detail-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:650px){
+      .shell{padding:14px}
+      .topbar{align-items:flex-start;flex-direction:column}
+      .toolbar{grid-template-columns:1fr}
+      .profile-form{grid-template-columns:1fr}
+      .profile-form .full{grid-column:1}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <h1>Top Deck Music Group</h1>
+      <p>V6 Artist Profiles + Label CRM</p>
+    </div>
+    <nav class="nav">
+      <a href="../index.html">Main Site</a>
+      <a href="../artist-portal/">Artist Portal</a>
+      <button id="signOutBtn" class="secondary hidden">Sign Out</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">ADMIN V6</span>
+    <h2>Know your artists. Manage the roster. Build the legacy.</h2>
+  </section>
+
+  <section id="loginCard" class="card" style="max-width:680px">
+    <h2>Admin Login</h2>
+    <label>Email</label><input id="email" type="email" autocomplete="email">
+    <label>Password</label>
+    <div class="password-wrap">
+      <input id="password" type="password" autocomplete="current-password">
+      <button id="togglePassword" class="show-password" type="button">Show password</button>
+    </div>
+    <button id="loginBtn" class="primary" style="margin-top:16px">Sign In</button>
+    <div id="loginStatus" class="notice">Admin access is required.</div>
+  </section>
+
+  <main id="dashboard" class="hidden">
+    <section class="stats">
+      <div class="stat"><span>Total Artists</span><strong id="artistCount">0</strong></div>
+      <div class="stat"><span>Active</span><strong id="activeCount">0</strong></div>
+      <div class="stat"><span>Verified</span><strong id="verifiedCount">0</strong></div>
+      <div class="stat"><span>Signed</span><strong id="signedCount">0</strong></div>
+      <div class="stat"><span>Total Releases</span><strong id="releaseCount">0</strong></div>
+    </section>
+
+    <div class="tabs">
+      <button id="artistsTab" class="secondary tab active">Artists</button>
+      <button id="profileTab" class="secondary tab">Artist Profile</button>
+    </div>
+
+    <section id="artistsView" class="card">
+      <div class="toolbar">
+        <input id="artistSearch" placeholder="Search name, city, genre, email, manager, or status...">
+        <select id="artistStatusFilter">
+          <option value="All">All artist statuses</option>
+          <option>Active</option>
+          <option>Inactive</option>
+          <option>On Hold</option>
+        </select>
+        <button id="refreshBtn" class="secondary">Refresh</button>
+      </div>
+      <div id="artistGrid" class="artist-grid"></div>
+      <div id="crmStatus" class="notice">Loading roster...</div>
+    </section>
+
+    <section id="profileView" class="hidden">
+      <div class="detail-grid">
+        <section class="card">
+          <div id="profileHeader"></div>
+          <div class="profile-form">
+            <div><label>Artist Name</label><input id="artistName"></div>
+            <div><label>Legal Name</label><input id="legalName"></div>
+            <div><label>Genre</label><input id="genre"></div>
+            <div><label>Hometown / City</label><input id="location"></div>
+            <div><label>Email</label><input id="contactEmail"></div>
+            <div><label>Phone</label><input id="phone"></div>
+            <div><label>Manager</label><input id="managerName"></div>
+            <div><label>Manager Email</label><input id="managerEmail"></div>
+            <div><label>Booking Email</label><input id="bookingEmail"></div>
+            <div><label>Website</label><input id="websiteUrl"></div>
+            <div><label>Instagram</label><input id="instagramUrl"></div>
+            <div><label>Spotify</label><input id="spotifyUrl"></div>
+            <div><label>Apple Music</label><input id="appleMusicUrl"></div>
+            <div><label>YouTube</label><input id="youtubeUrl"></div>
+            <div><label>Profile Image URL</label><input id="profileImageUrl"></div>
+            <div><label>Artist Status</label>
+              <select id="artistStatus"><option>Active</option><option>Inactive</option><option>On Hold</option></select>
+            </div>
+            <div><label>Contract Status</label>
+              <select id="contractStatus"><option>Unsigned</option><option>Signed</option><option>Distribution Only</option><option>Pending</option></select>
+            </div>
+            <div><label>Verified</label>
+              <select id="verified"><option value="false">No</option><option value="true">Yes</option></select>
+            </div>
+            <div class="full"><label>Bio</label><textarea id="bio"></textarea></div>
+            <div class="full"><label>CRM Notes</label><textarea id="crmNotes"></textarea></div>
+          </div>
+          <button id="saveProfileBtn" class="primary" style="margin-top:16px">Save Artist Profile</button>
+          <div id="profileStatus" class="notice">Select an artist to edit.</div>
+        </section>
+
+        <section class="card">
+          <h3>Artist Release History</h3>
+          <div id="artistReleases" class="release-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="admin-v6.js"></script>
+</body>
+</html>
