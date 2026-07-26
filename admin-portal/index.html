@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>V6 Artist CRM | Top Deck Music Group</title>
+  <title>V7 Distribution Center | Top Deck Music Group</title>
   <style>
     :root{
       --bg:#070707;--panel:#111;--panel2:#181818;--line:#2c2c2c;
       --text:#f7f7f7;--muted:#aaa;--gold:#d7a82f;--gold2:#f5d269;
-      --green:#3eb36a;--red:#d95f5f;--blue:#5a8dee;
+      --green:#3eb36a;--red:#d95f5f;--blue:#5a8dee;--orange:#d98b3e;
     }
     *{box-sizing:border-box}
     body{
@@ -27,7 +27,7 @@
     .brand p{margin:5px 0 0;color:var(--muted)}
     .nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
     .hero{padding:34px 0 20px}
-    .hero h2{font-size:clamp(2rem,5vw,4.6rem);line-height:.98;margin:8px 0 14px}
+    .hero h2{font-size:clamp(2rem,5vw,4.4rem);line-height:.98;margin:8px 0 14px}
     .badge{
       display:inline-block;padding:7px 11px;border-radius:999px;
       background:rgba(215,168,47,.15);border:1px solid rgba(215,168,47,.45);
@@ -39,11 +39,12 @@
       border:1px solid var(--line);border-radius:18px;padding:20px;
       box-shadow:0 18px 55px rgba(0,0,0,.25)
     }
-    .primary,.secondary{
+    .primary,.secondary,.danger{
       border:0;border-radius:11px;padding:11px 16px;font-weight:800
     }
     .primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
     .secondary{background:#242424;color:#fff;border:1px solid #444}
+    .danger{background:#3b1818;color:#ffd6d6;border:1px solid #753434}
     label{display:block;margin:13px 0 7px;font-weight:700}
     input,select,textarea{
       width:100%;background:#090909;color:#fff;border:1px solid #3a3a3a;
@@ -63,15 +64,15 @@
     }
     .notice.success{border-color:#2d7442;color:#d8ffe1}
     .notice.error{border-color:#7b3434;color:#ffd4d4}
-    .stats{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:14px;margin-bottom:18px}
+    .stats{display:grid;grid-template-columns:repeat(6,minmax(145px,1fr));gap:14px;margin-bottom:18px}
     .stat{background:#121212;border:1px solid var(--line);border-radius:15px;padding:17px}
     .stat span{color:var(--muted);font-size:.88rem}
     .stat strong{display:block;color:var(--gold2);font-size:2rem;margin-top:5px}
     .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
     .tab.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
-    .toolbar{display:grid;grid-template-columns:2fr 1fr auto;gap:12px;margin-bottom:18px}
-    .artist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-    .artist-card{
+    .toolbar{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-bottom:18px}
+    .artist-grid,.release-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .artist-card,.release-card{
       border:1px solid var(--line);border-radius:16px;padding:16px;background:#0d0d0d
     }
     .artist-head{display:flex;gap:14px;align-items:center}
@@ -80,16 +81,28 @@
       border:2px solid #3a3a3a
     }
     .artist-photo.placeholder{display:flex;align-items:center;justify-content:center;color:#777;font-size:.78rem}
-    .artist-card h3{margin:0 0 4px}
+    .cover{
+      width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#181818;
+      border:1px solid #333;margin-bottom:13px
+    }
+    .cover.placeholder{display:flex;align-items:center;justify-content:center;color:#777}
+    .artist-card h3,.release-card h3{margin:0 0 4px}
     .verified{color:var(--gold2);font-weight:800;font-size:.82rem}
     .meta{color:var(--muted);font-size:.9rem;line-height:1.45;margin-top:10px}
     .pill{
       display:inline-block;padding:4px 9px;border-radius:999px;background:#262626;
       font-size:.78rem;font-weight:800;margin:6px 5px 0 0
     }
+    .status-submitted{background:#2b2b2b}
+    .status-reviewing{background:#29334a;color:#cfe0ff}
+    .status-needs-changes{background:#4a2e1f;color:#ffd8bd}
+    .status-approved{background:#24422f;color:#d2ffe0}
+    .status-ready-for-distribution{background:#4a3f1e;color:#fff0ad}
+    .status-scheduled{background:#30274a;color:#e0d5ff}
+    .status-released{background:#1f4a39;color:#d5ffe9}
     .detail-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
-    .profile-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .profile-form .full{grid-column:1/3}
+    .profile-form,.workspace-form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .profile-form .full,.workspace-form .full{grid-column:1/3}
     .release-list{display:grid;gap:12px}
     .release{
       padding:13px;border:1px solid var(--line);border-radius:12px;background:#0c0c0c
@@ -97,16 +110,25 @@
     .release strong{color:var(--gold2)}
     .small{font-size:.88rem;color:var(--muted);line-height:1.45}
     .empty{text-align:center;padding:34px;color:var(--muted)}
+    .release-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .release-actions button{flex:1}
+    .workspace-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+    .workspace-cover{width:220px;max-width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid #333;background:#151515}
+    .workspace-layout{display:grid;grid-template-columns:260px 1fr;gap:18px}
+    audio{width:100%;margin-top:12px}
+    @media(max-width:1100px){
+      .stats{grid-template-columns:repeat(3,1fr)}
+    }
     @media(max-width:900px){
-      .stats{grid-template-columns:repeat(2,1fr)}
-      .detail-grid{grid-template-columns:1fr}
+      .detail-grid,.workspace-layout{grid-template-columns:1fr}
     }
     @media(max-width:650px){
       .shell{padding:14px}
       .topbar{align-items:flex-start;flex-direction:column}
       .toolbar{grid-template-columns:1fr}
-      .profile-form{grid-template-columns:1fr}
-      .profile-form .full{grid-column:1}
+      .profile-form,.workspace-form{grid-template-columns:1fr}
+      .profile-form .full,.workspace-form .full{grid-column:1}
+      .stats{grid-template-columns:repeat(2,1fr)}
     }
   </style>
 </head>
@@ -115,7 +137,7 @@
   <header class="topbar">
     <div class="brand">
       <h1>Top Deck Music Group</h1>
-      <p>V6 Artist Profiles + Label CRM</p>
+      <p>V7 Distribution Center</p>
     </div>
     <nav class="nav">
       <a href="../index.html">Main Site</a>
@@ -125,8 +147,8 @@
   </header>
 
   <section class="hero">
-    <span class="badge">ADMIN V6</span>
-    <h2>Know your artists. Manage the roster. Build the legacy.</h2>
+    <span class="badge">ADMIN V7</span>
+    <h2>Control the roster. Move the releases. Build the legacy.</h2>
   </section>
 
   <section id="loginCard" class="card" style="max-width:680px">
@@ -144,15 +166,18 @@
   <main id="dashboard" class="hidden">
     <section class="stats">
       <div class="stat"><span>Total Artists</span><strong id="artistCount">0</strong></div>
-      <div class="stat"><span>Active</span><strong id="activeCount">0</strong></div>
-      <div class="stat"><span>Verified</span><strong id="verifiedCount">0</strong></div>
-      <div class="stat"><span>Signed</span><strong id="signedCount">0</strong></div>
       <div class="stat"><span>Total Releases</span><strong id="releaseCount">0</strong></div>
+      <div class="stat"><span>Submitted / Review</span><strong id="reviewCount">0</strong></div>
+      <div class="stat"><span>Ready</span><strong id="readyCount">0</strong></div>
+      <div class="stat"><span>Scheduled</span><strong id="scheduledCount">0</strong></div>
+      <div class="stat"><span>Released</span><strong id="releasedCount">0</strong></div>
     </section>
 
     <div class="tabs">
       <button id="artistsTab" class="secondary tab active">Artists</button>
       <button id="profileTab" class="secondary tab">Artist Profile</button>
+      <button id="distributionTab" class="secondary tab">Distribution</button>
+      <button id="workspaceTab" class="secondary tab">Release Workspace</button>
     </div>
 
     <section id="artistsView" class="card">
@@ -164,6 +189,7 @@
           <option>Inactive</option>
           <option>On Hold</option>
         </select>
+        <div></div>
         <button id="refreshBtn" class="secondary">Refresh</button>
       </div>
       <div id="artistGrid" class="artist-grid"></div>
@@ -212,11 +238,82 @@
         </section>
       </div>
     </section>
+
+    <section id="distributionView" class="card hidden">
+      <div class="toolbar">
+        <input id="releaseSearch" placeholder="Search song, artist, type, or status...">
+        <select id="distributionStatusFilter">
+          <option value="All">All distribution statuses</option>
+          <option>Submitted</option>
+          <option>Reviewing</option>
+          <option>Needs Changes</option>
+          <option>Approved</option>
+          <option>Ready for Distribution</option>
+          <option>Scheduled</option>
+          <option>Released</option>
+        </select>
+        <select id="releaseTypeFilter">
+          <option value="All">All release types</option>
+          <option>Single</option>
+          <option>EP</option>
+          <option>Album</option>
+          <option>Mixtape</option>
+        </select>
+        <button id="distributionRefreshBtn" class="secondary">Refresh</button>
+      </div>
+      <div id="releaseGrid" class="release-grid"></div>
+      <div id="distributionStatus" class="notice">Loading distribution queue...</div>
+    </section>
+
+    <section id="workspaceView" class="hidden">
+      <div class="card">
+        <div class="workspace-head">
+          <div>
+            <span class="badge">RELEASE WORKSPACE</span>
+            <h2 id="workspaceTitle" style="margin:10px 0 4px">Select a release</h2>
+            <div id="workspaceSubtitle" class="small">Open a release from Distribution.</div>
+          </div>
+          <button id="backToDistributionBtn" class="secondary">Back to Distribution</button>
+        </div>
+
+        <div class="workspace-layout">
+          <div>
+            <div id="workspaceCoverWrap" class="cover placeholder">No Artwork</div>
+            <audio id="workspaceAudio" controls class="hidden"></audio>
+          </div>
+
+          <div>
+            <div class="workspace-form">
+              <div>
+                <label>Distribution Status</label>
+                <select id="workspaceDistributionStatus">
+                  <option>Submitted</option>
+                  <option>Reviewing</option>
+                  <option>Needs Changes</option>
+                  <option>Approved</option>
+                  <option>Ready for Distribution</option>
+                  <option>Scheduled</option>
+                  <option>Released</option>
+                </select>
+              </div>
+              <div><label>Release Date</label><input id="workspaceReleaseDate" type="date"></div>
+              <div><label>Release Type</label><input id="workspaceReleaseType" disabled></div>
+              <div><label>Original Approval Status</label><input id="workspaceApprovalStatus" disabled></div>
+              <div class="full"><label>Admin Notes</label><textarea id="workspaceAdminNotes" placeholder="Internal distribution notes..."></textarea></div>
+            </div>
+            <div class="release-actions">
+              <button id="saveWorkspaceBtn" class="primary">Save Distribution Update</button>
+            </div>
+            <div id="workspaceStatus" class="notice">No release selected.</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase-config.js"></script>
-<script src="admin-v6.js"></script>
+<script src="admin-v7.js"></script>
 </body>
 </html>
