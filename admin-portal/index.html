@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>V7 Distribution Center | Top Deck Music Group</title>
+  <title>Top Deck OS V7.1 | Release Readiness</title>
   <style>
     :root{
       --bg:#070707;--panel:#111;--panel2:#181818;--line:#2c2c2c;
@@ -116,6 +116,21 @@
     .workspace-cover{width:220px;max-width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid #333;background:#151515}
     .workspace-layout{display:grid;grid-template-columns:260px 1fr;gap:18px}
     audio{width:100%;margin-top:12px}
+
+    .readiness-panel{margin-bottom:18px;padding:18px;border:1px solid rgba(215,168,47,.42);border-radius:16px;background:linear-gradient(135deg,rgba(215,168,47,.10),rgba(255,255,255,.025))}
+    .readiness-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:12px}
+    .readiness-top h3{margin:0}.readiness-score{font-size:2rem;font-weight:900;color:var(--gold2)}
+    .progress-track{height:14px;border-radius:999px;background:#292929;overflow:hidden;border:1px solid #3b3b3b}
+    .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--gold2),var(--green));transition:width .25s ease}
+    .readiness-state{margin-top:10px;font-weight:800}
+    .checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}
+    .check-item{display:flex;gap:9px;align-items:center;padding:9px 10px;border:1px solid #303030;border-radius:10px;background:#0c0c0c;color:var(--muted)}
+    .check-item.complete{border-color:#2d7442;color:#d8ffe1;background:#102117}.check-icon{font-weight:900}
+    .metadata-panel{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .metadata-panel h3{margin:0 0 5px;color:var(--gold2)}
+    .send-button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.6)}
+    .readiness-mini{margin-top:10px;font-weight:800;color:var(--gold2)}
+    @media(max-width:650px){.checklist{grid-template-columns:1fr}.readiness-top{align-items:flex-start;flex-direction:column}}
     @media(max-width:1100px){
       .stats{grid-template-columns:repeat(3,1fr)}
     }
@@ -137,7 +152,7 @@
   <header class="topbar">
     <div class="brand">
       <h1>Top Deck Music Group</h1>
-      <p>V7 Distribution Center</p>
+      <p>Top Deck OS V7.1 • Release Readiness</p>
     </div>
     <nav class="nav">
       <a href="../index.html">Main Site</a>
@@ -147,7 +162,7 @@
   </header>
 
   <section class="hero">
-    <span class="badge">ADMIN V7</span>
+    <span class="badge">TOP DECK OS V7.1</span>
     <h2>Control the roster. Move the releases. Build the legacy.</h2>
   </section>
 
@@ -283,6 +298,19 @@
           </div>
 
           <div>
+            <section class="readiness-panel" aria-labelledby="readinessHeading">
+              <div class="readiness-top">
+                <div>
+                  <h3 id="readinessHeading">Release Readiness</h3>
+                  <div class="small">Complete every required item before sending the release forward.</div>
+                </div>
+                <div id="workspaceReadinessScore" class="readiness-score">0%</div>
+              </div>
+              <div class="progress-track" aria-hidden="true"><div id="workspaceReadinessFill" class="progress-fill"></div></div>
+              <div id="workspaceReadinessState" class="readiness-state">Open a release to calculate readiness.</div>
+              <div id="workspaceChecklist" class="checklist"></div>
+            </section>
+
             <div class="workspace-form">
               <div>
                 <label>Distribution Status</label>
@@ -299,10 +327,22 @@
               <div><label>Release Date</label><input id="workspaceReleaseDate" type="date"></div>
               <div><label>Release Type</label><input id="workspaceReleaseType" disabled></div>
               <div><label>Original Approval Status</label><input id="workspaceApprovalStatus" disabled></div>
+              <div class="full metadata-panel">
+                <h3>Distribution Metadata</h3>
+                <div class="small">These fields are stored with this release in Supabase.</div>
+              </div>
+              <div><label>ISRC</label><input id="workspaceISRC" maxlength="15" placeholder="Example: US-ABC-26-00001"></div>
+              <div><label>UPC</label><input id="workspaceUPC" inputmode="numeric" maxlength="14" placeholder="12–14 digit release code"></div>
+              <div><label>Publisher</label><input id="workspacePublisher" placeholder="Publisher or publishing entity"></div>
+              <div><label>Copyright Owner</label><input id="workspaceCopyright" placeholder="Copyright owner"></div>
+              <div class="full"><label>Marketing Assets Complete</label>
+                <select id="workspaceMarketing"><option value="false">No — still needed</option><option value="true">Yes — complete</option></select>
+              </div>
               <div class="full"><label>Admin Notes</label><textarea id="workspaceAdminNotes" placeholder="Internal distribution notes..."></textarea></div>
             </div>
             <div class="release-actions">
-              <button id="saveWorkspaceBtn" class="primary">Save Distribution Update</button>
+              <button id="saveWorkspaceBtn" class="primary">Save V7.1 Update</button>
+              <button id="sendDistributionBtn" class="secondary send-button" disabled>🚀 Send to Distribution</button>
             </div>
             <div id="workspaceStatus" class="notice">No release selected.</div>
           </div>
@@ -314,6 +354,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase-config.js"></script>
-<script src="admin-v7.js"></script>
+<script src="admin-v7.1.js"></script>
 </body>
 </html>

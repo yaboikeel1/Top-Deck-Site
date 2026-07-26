@@ -1,35 +1,16 @@
-TOP DECK OS V7.1 — RELEASE READINESS
-========================================
+TOP DECK OS V7.1 — FLAT GITHUB UPLOAD
 
-FILES
-- index.html
-- admin-v7.1.js
+Upload index.html and admin-v7.1.js directly into:
+Top-Deck-Site/admin-portal/
 
-DEPLOYMENT
-1. In GitHub, open the admin-portal folder.
-2. Upload index.html and admin-v7.1.js from this package.
-3. Delete admin-v7.js only after confirming index.html references admin-v7.1.js.
-4. Commit with message: Deploy Top Deck OS V7.1 Release Readiness
-5. Wait for Netlify to deploy.
-6. Open /admin-portal/ and hard refresh the browser.
+Do not upload the containing folder.
+Replace the existing index.html when GitHub prompts you.
+Keep admin-v7.js as a rollback backup.
 
-TEST CHECKLIST
-- Sign in as admin.
-- Open Distribution, then open a release workspace.
-- Confirm readiness meter and checklist appear.
-- Enter ISRC, UPC, Publisher, Copyright Owner, and Marketing status.
-- Save and confirm “Distribution update saved.”
-- Reopen the release and confirm the values persist.
-- At 100%, confirm “Send to Distribution” enables.
-- Click it and confirm status becomes “Ready for Distribution.”
+The new index.html loads:
+<script src="admin-v7.1.js"></script>
 
-DATABASE COLUMNS REQUIRED
-- isrc text
-- upc text
-- publisher text
-- copyright_owner text
-- marketing_complete boolean
-- readiness_score integer
+Commit message:
+Deploy Top Deck OS V7.1 Release Readiness
 
-ROLLBACK
-Restore the previous V7 index.html and admin-v7.js files from GitHub history.
+After Netlify deploys, hard refresh with Ctrl+F5.
