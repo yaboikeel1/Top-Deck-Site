@@ -4,32 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin Portal | Top Deck Music Group</title>
-  <link rel="stylesheet" href="../portal-shared.css">
+  <link rel="stylesheet" href="../portal-v4.css">
 </head>
 <body>
 <div class="shell">
-  <div class="brand">
-    <div><h1>Top Deck Admin Portal</h1><p>Review artist submissions.</p></div>
-    <nav><a href="../artist-portal/">Artist Portal</a><a href="../index.html">Main Site</a></nav>
-  </div>
-  <section class="card">
-    <h2>Admin Access</h2>
-    <p class="small">For launch, use a Supabase account whose email is included in <code>admin.js</code>.</p>
-    <label>Email</label><input id="email" type="email">
-    <label>Password</label><input id="password" type="password">
-    <div class="row" style="margin-top:14px">
-      <button class="primary" id="loginBtn">Sign In</button>
-      <button class="secondary hidden" id="logoutBtn">Sign Out</button>
+  <header class="brand">
+    <div><h1>Top Deck Admin Portal</h1><p>Label control center.</p></div>
+    <nav><a href="../index.html">Main Site</a><a href="../artist-portal/">Artist Portal</a></nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">Admin V4</span>
+    <h2>Review artists and manage submissions.</h2>
+  </section>
+
+  <section id="adminLogin" class="card">
+    <h2>Admin Login</h2>
+    <label>Email</label><input id="email" type="email" autocomplete="email">
+    <label>Password</label>
+    <div class="password-wrap">
+      <input id="password" type="password" autocomplete="current-password">
+      <button id="togglePassword" class="show-password" type="button">Show password</button>
     </div>
-    <div id="status" class="status">Waiting for login.</div>
+    <button id="loginBtn" class="primary" style="margin-top:16px">Sign In</button>
+    <div id="loginStatus" class="notice">Admin access is required.</div>
   </section>
-  <section id="adminDashboard" class="hidden card" style="margin-top:18px">
-    <h2>Release Review Queue</h2>
-    <div id="queue">No submissions loaded.</div>
-  </section>
+
+  <main id="adminDashboard" class="hidden">
+    <div class="row" style="justify-content:space-between;margin-bottom:18px">
+      <h2>Label Dashboard</h2><button id="signOutBtn" class="secondary">Sign Out</button>
+    </div>
+
+    <div class="grid" style="margin-bottom:18px">
+      <div class="stat"><span class="small">Artists</span><strong id="artistCount">0</strong></div>
+      <div class="stat"><span class="small">Pending Releases</span><strong id="pendingCount">0</strong></div>
+      <div class="stat"><span class="small">Total Releases</span><strong id="releaseCount">0</strong></div>
+    </div>
+
+    <section class="card">
+      <h3>Release Submissions</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Artist</th><th>Release</th><th>Files</th><th>Status</th><th>Admin Note</th><th>Action</th></tr></thead>
+          <tbody id="releaseRows"></tbody>
+        </table>
+      </div>
+      <div id="adminStatus" class="notice">Submissions will appear here.</div>
+    </section>
+  </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase-config.js"></script>
-<script src="admin.js"></script>
+<script src="admin-v4.js"></script>
 </body>
 </html>
