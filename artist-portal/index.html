@@ -1,1 +1,126 @@
-Regenerated placeholder package.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Artist Portal | Top Deck Music Group</title>
+  <link rel="stylesheet" href="../portal-v4.css">
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <div>
+      <h1>Top Deck Artist Portal</h1>
+      <p>From the mud to motion.</p>
+    </div>
+    <nav>
+      <a href="../index.html">Main Site</a>
+      <a href="../admin-portal/">Admin Portal</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">Portal V4</span>
+    <h2>Build, submit, and manage your music.</h2>
+    <p>A secure artist workspace for profiles, cover art, audio uploads, release submissions, and status tracking.</p>
+  </section>
+
+  <section id="authCard" class="card">
+    <h2>Artist Login</h2>
+    <div class="grid">
+      <div>
+        <label>Email</label>
+        <input id="email" type="email" autocomplete="email" placeholder="artist@email.com">
+      </div>
+      <div>
+        <label>Password</label>
+        <div class="password-wrap">
+          <input id="password" type="password" autocomplete="current-password" placeholder="Your password">
+          <button id="togglePassword" class="show-password" type="button">Show password</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button id="signInBtn" class="primary">Sign In</button>
+      <button id="signUpBtn" class="secondary">Create Account</button>
+      <button id="forgotBtn" class="link-button" type="button">Forgot password?</button>
+    </div>
+    <div id="authStatus" class="notice">Enter your login information.</div>
+  </section>
+
+  <section id="resetCard" class="card hidden">
+    <h2>Create New Password</h2>
+    <label>New Password</label>
+    <div class="password-wrap">
+      <input id="newPassword" type="password" autocomplete="new-password">
+      <button id="toggleNewPassword" class="show-password" type="button">Show password</button>
+    </div>
+    <label>Confirm Password</label>
+    <div class="password-wrap">
+      <input id="confirmPassword" type="password" autocomplete="new-password">
+      <button id="toggleConfirmPassword" class="show-password" type="button">Show password</button>
+    </div>
+    <button id="savePasswordBtn" class="primary" style="margin-top:16px">Save New Password</button>
+    <div id="resetStatus" class="notice">Choose a password with at least 6 characters.</div>
+  </section>
+
+  <main id="dashboard" class="hidden">
+    <div class="row" style="justify-content:space-between;margin-bottom:18px">
+      <div>
+        <span class="badge">Artist Dashboard</span>
+        <h2 id="welcomeHeading">Welcome</h2>
+      </div>
+      <button id="signOutBtn" class="secondary">Sign Out</button>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h3>Artist Profile</h3>
+        <label>Artist Name</label>
+        <input id="artistName" placeholder="Keel G">
+        <label>Bio</label>
+        <textarea id="bio" placeholder="Tell fans and the label about yourself."></textarea>
+        <label>City / Region</label>
+        <input id="location" placeholder="Plain Dealing / Shreveport">
+        <label>Profile Image URL</label>
+        <input id="profileImage" placeholder="https://...">
+        <button id="saveProfileBtn" class="primary" style="margin-top:14px">Save Profile</button>
+        <div id="profileStatus" class="notice">Profile changes will appear here.</div>
+      </section>
+
+      <section class="card">
+        <h3>Streaming Links</h3>
+        <label>Spotify</label><input id="spotify" placeholder="https://open.spotify.com/...">
+        <label>Apple Music</label><input id="appleMusic" placeholder="https://music.apple.com/...">
+        <label>YouTube</label><input id="youtube" placeholder="https://youtube.com/...">
+        <label>Audiomack</label><input id="audiomack" placeholder="https://audiomack.com/...">
+        <button id="saveLinksBtn" class="primary" style="margin-top:14px">Save Streaming Links</button>
+        <div id="linksStatus" class="notice">Streaming links will appear here.</div>
+      </section>
+
+      <section class="card">
+        <h3>Submit a Release</h3>
+        <label>Title</label><input id="releaseTitle" placeholder="Song or project title">
+        <label>Release Type</label>
+        <select id="releaseType"><option>Single</option><option>EP</option><option>Mixtape</option><option>Album</option></select>
+        <label>Planned Release Date</label><input id="releaseDate" type="date">
+        <label>Featured Artist(s)</label><input id="featuredArtists" placeholder="Optional">
+        <label>Cover Art File</label><input id="coverFile" type="file" accept="image/*">
+        <label>Audio File</label><input id="audioFile" type="file" accept="audio/*">
+        <label>Admin Notes</label><textarea id="notes" placeholder="Distribution, clean version, rollout notes, etc."></textarea>
+        <button id="submitReleaseBtn" class="primary" style="margin-top:14px">Upload & Submit</button>
+        <div id="releaseStatus" class="notice">Your submission status will appear here.</div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:18px">
+      <h3>My Release Submissions</h3>
+      <div id="myReleases" class="small">No releases loaded.</div>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="portal-v4.js"></script>
+</body>
+</html>
