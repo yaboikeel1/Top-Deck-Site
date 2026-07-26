@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Artist Portal | Top Deck Music Group</title>
+  <link rel="stylesheet" href="../portal-shared.css">
+</head>
+<body>
+<div class="shell">
+  <div class="brand">
+    <div>
+      <h1>Top Deck Artist Portal</h1>
+      <p>From the mud to motion.</p>
+    </div>
+    <nav>
+      <a href="../index.html">Main Site</a>
+      <a href="../admin-portal/">Admin</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <span class="badge">Artist Dashboard V2</span>
+    <h2>Manage your profile and submit releases</h2>
+    <p class="small">Login, update your artist information, submit music, cover art, and streaming links.</p>
+  </section>
+
+  <section id="authCard" class="card">
+    <h2>Artist Login</h2>
+    <div class="grid">
+      <div>
+        <label>Email</label>
+        <input id="email" type="email" placeholder="artist@email.com">
+      </div>
+      <div>
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Minimum 6 characters">
+      </div>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button class="primary" id="signInBtn">Sign In</button>
+      <button class="secondary" id="signUpBtn">Create Account</button>
+    </div>
+    <div id="authStatus" class="status">Enter your Supabase credentials in supabase-config.js before using login.</div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="row" style="justify-content:space-between;margin-bottom:18px">
+      <h2>Artist Dashboard</h2>
+      <button class="secondary" id="signOutBtn">Sign Out</button>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h3>Artist Profile</h3>
+        <label>Artist Name</label>
+        <input id="artistName" placeholder="Keel G">
+        <label>Bio</label>
+        <textarea id="bio" placeholder="Tell fans who you are..."></textarea>
+        <label>City / Region</label>
+        <input id="location" placeholder="Plain Dealing / Shreveport">
+        <label>Profile Image URL</label>
+        <input id="profileImage" placeholder="https://...">
+        <button class="primary" id="saveProfileBtn" style="margin-top:14px">Save Profile</button>
+        <div id="profileStatus" class="status">Profile not saved yet.</div>
+      </section>
+
+      <section class="card">
+        <h3>Submit New Release</h3>
+        <label>Song / Project Title</label>
+        <input id="releaseTitle" placeholder="Song title">
+        <label>Release Type</label>
+        <select id="releaseType">
+          <option>Single</option>
+          <option>EP</option>
+          <option>Mixtape</option>
+          <option>Album</option>
+        </select>
+        <label>Release Date</label>
+        <input id="releaseDate" type="date">
+        <label>Featured Artist(s)</label>
+        <input id="featuredArtists" placeholder="Optional">
+        <label>Cover Art URL</label>
+        <input id="coverUrl" placeholder="https://...">
+        <label>Audio / Preview URL</label>
+        <input id="audioUrl" placeholder="https://...">
+        <label>Notes for Admin</label>
+        <textarea id="notes" placeholder="Clean version, rollout notes, distribution details..."></textarea>
+        <button class="primary" id="submitReleaseBtn" style="margin-top:14px">Submit Release</button>
+        <div id="releaseStatus" class="status">No release submitted yet.</div>
+      </section>
+
+      <section class="card">
+        <h3>Streaming Links</h3>
+        <label>Spotify</label><input id="spotify" placeholder="https://open.spotify.com/...">
+        <label>Apple Music</label><input id="appleMusic" placeholder="https://music.apple.com/...">
+        <label>YouTube</label><input id="youtube" placeholder="https://youtube.com/...">
+        <label>Audiomack</label><input id="audiomack" placeholder="https://audiomack.com/...">
+        <button class="primary" id="saveLinksBtn" style="margin-top:14px">Save Links</button>
+        <div id="linksStatus" class="status">Links not saved yet.</div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:18px">
+      <h3>My Release Submissions</h3>
+      <div id="myReleases" class="small">No submissions loaded.</div>
+    </section>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>

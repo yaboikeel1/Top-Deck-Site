@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Portal | Top Deck Music Group</title>
+  <link rel="stylesheet" href="../portal-shared.css">
+</head>
+<body>
+<div class="shell">
+  <div class="brand">
+    <div><h1>Top Deck Admin Portal</h1><p>Review artist submissions.</p></div>
+    <nav><a href="../artist-portal/">Artist Portal</a><a href="../index.html">Main Site</a></nav>
+  </div>
+  <section class="card">
+    <h2>Admin Access</h2>
+    <p class="small">For launch, use a Supabase account whose email is included in <code>admin.js</code>.</p>
+    <label>Email</label><input id="email" type="email">
+    <label>Password</label><input id="password" type="password">
+    <div class="row" style="margin-top:14px">
+      <button class="primary" id="loginBtn">Sign In</button>
+      <button class="secondary hidden" id="logoutBtn">Sign Out</button>
+    </div>
+    <div id="status" class="status">Waiting for login.</div>
+  </section>
+  <section id="adminDashboard" class="hidden card" style="margin-top:18px">
+    <h2>Release Review Queue</h2>
+    <div id="queue">No submissions loaded.</div>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

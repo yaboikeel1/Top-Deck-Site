@@ -1,0 +1,2 @@
+Artist Portal URL: /artist-portal/
+Admin Portal URL: /admin-portal/
