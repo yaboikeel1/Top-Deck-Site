@@ -1,17 +1,18 @@
-TOP DECK OS V7.3.0 — OPERATIONS CENTER
+TOP DECK OS V7.4.0 — INTELLIGENCE & ACTION CENTER
 
-Upload these files directly into the existing admin-portal folder:
+Upload these files directly into admin-portal/ on the feature/v7.4-intelligence branch:
 - index.html
-- admin-v7.3.0.js
+- admin-v7.4.0.js
 - README.txt
 
-New in V7.3.0:
-- Command Center dashboard
-- Priority Actions list
-- Workflow Snapshot
-- Master Catalog table
-- Catalog search and filters
-- One-click access to Release Workspace
+V7.4 features:
+- Live tasks from Supabase tasks table
+- Generate Suggested Tasks button based on current release readiness
+- Complete task actions
+- Unread notification center with mark-as-read actions
+- Release Health panel with Healthy / Needs Attention / Critical states
+- Automatic activity logging when release workspaces are saved
+- Automatic notification when a release reaches 100% readiness
+- Existing V7.3 Command Center, Catalog, CRM, Distribution, and Workspace preserved
 
-No new Supabase SQL is required for this sprint.
-After committing, wait for Netlify deployment and hard refresh the admin portal.
+Database prerequisite: V7.4 operations tables and admin-only RLS policies must already be installed.
