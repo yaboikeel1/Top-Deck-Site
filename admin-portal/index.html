@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Top Deck OS V7.2.2 | Label Workflow Engine</title>
+  <title>Top Deck OS V7.4.0 | Intelligence & Action Center</title>
   <style>
     :root{
       --bg:#070707;--panel:#111;--panel2:#181818;--line:#2c2c2c;
@@ -188,6 +188,20 @@
     .priority-owner{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2)}
     @media(max-width:900px){.command-grid{grid-template-columns:repeat(2,1fr)}.ops-grid{grid-template-columns:1fr}.catalog-toolbar{grid-template-columns:1fr}}
     @media(max-width:600px){.command-grid{grid-template-columns:1fr}}
+
+    .intelligence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+    .intelligence-panel{border:1px solid #353535;border-radius:15px;background:#101010;padding:16px;min-height:230px}
+    .intelligence-panel h3{margin:0 0 12px}.panel-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}
+    .panel-count{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 8px;border-radius:999px;background:rgba(215,168,47,.16);border:1px solid rgba(215,168,47,.42);color:var(--gold2);font-weight:900}
+    .task-row,.notification-row,.health-row{padding:12px;border:1px solid #303030;border-radius:12px;background:#171717;margin-bottom:9px}
+    .task-row-top,.notification-row-top,.health-row-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .task-row strong,.notification-row strong,.health-row strong{display:block}.ops-meta{color:var(--muted);font-size:.78rem;line-height:1.4;margin-top:5px}
+    .priority-high{color:#ffb8b8}.priority-medium{color:#ffe0a3}.priority-low{color:#b9d5ff}
+    .health-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:7px}.health-healthy{background:var(--green)}.health-attention{background:var(--gold2)}.health-critical{background:var(--red)}
+    .micro-button{padding:7px 9px;border-radius:9px;font-size:.76rem;font-weight:900;border:1px solid #444;background:#242424;color:#fff}
+    .command-tools{display:flex;gap:9px;flex-wrap:wrap}.command-tools button{white-space:nowrap}
+    @media(max-width:1050px){.intelligence-grid{grid-template-columns:1fr 1fr}.intelligence-grid .intelligence-panel:last-child{grid-column:1/-1}}
+    @media(max-width:700px){.intelligence-grid{grid-template-columns:1fr}.intelligence-grid .intelligence-panel:last-child{grid-column:auto}}
   </style>
 </head>
 <body>
@@ -195,7 +209,7 @@
   <header class="topbar">
     <div class="brand">
       <h1>Top Deck Music Group</h1>
-      <p>Top Deck OS V7.3.0 • Operations Center</p>
+      <p>Top Deck OS V7.4.0 • Intelligence & Action Center</p>
     </div>
     <nav class="nav">
       <a href="../index.html">Main Site</a>
@@ -205,7 +219,7 @@
   </header>
 
   <section class="hero">
-    <span class="badge">TOP DECK OS V7.3.0</span>
+    <span class="badge">TOP DECK OS V7.4.0</span>
     <h2>Control the roster. Move the releases. Build the legacy.</h2>
   </section>
 
@@ -244,7 +258,7 @@
     <section id="commandView" class="card">
       <div class="workspace-head">
         <div><span class="badge">OPERATIONS CENTER</span><h2 style="margin:10px 0 4px">Top Deck Command Center</h2><div class="small">Your label priorities, bottlenecks, and release movement in one view.</div></div>
-        <button id="commandRefreshBtn" class="secondary">Refresh</button>
+        <div class="command-tools"><button id="generateTasksBtn" class="primary">Generate Suggested Tasks</button><button id="commandRefreshBtn" class="secondary">Refresh</button></div>
       </div>
       <div class="command-grid">
         <div class="command-stat"><span>New Submissions</span><strong id="commandNew">0</strong></div>
@@ -257,6 +271,11 @@
       <div class="ops-grid">
         <div><h3>🔥 Priority Actions</h3><div id="priorityActions" class="action-list"></div></div>
         <div><h3>🚦 Workflow Snapshot</h3><div id="workflowSnapshot" class="action-list"></div></div>
+      </div>
+      <div class="intelligence-grid">
+        <section class="intelligence-panel"><div class="panel-head"><h3>✅ Live Tasks</h3><span id="taskPanelCount" class="panel-count">0</span></div><div id="liveTasks"></div></section>
+        <section class="intelligence-panel"><div class="panel-head"><h3>🔔 Notifications</h3><span id="notificationPanelCount" class="panel-count">0</span></div><div id="liveNotifications"></div></section>
+        <section class="intelligence-panel"><div class="panel-head"><h3>❤️ Release Health</h3><span id="healthPanelCount" class="panel-count">0</span></div><div id="liveHealth"></div></section>
       </div>
       <div id="commandStatus" class="notice">Loading operations center...</div>
     </section>
@@ -477,6 +496,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../supabase-config.js"></script>
-<script src="admin-v7.3.0.js"></script>
+<script src="admin-v7.4.0.js"></script>
 </body>
 </html>
