@@ -1,97 +1,47 @@
-# Top Deck Music Group LLC Website
+# Top Deck Music Group — Complete Launch Package
 
-Official website repository for Top Deck Music Group LLC.
+## Included
+- Full public website
+- Artists page
+- Music catalog
+- Top Deck Radio page
+- Booking form
+- Contact page
+- Merch storefront and cart
+- Stripe checkout starter
+- Admin content manager
+- Shared JSON content
+- Netlify configuration
+- Asset folders
 
-> Built from the Bottom. Driven by Purpose. Destined for the Top.
+## Preview on Windows
+1. Extract this ZIP.
+2. Open the folder.
+3. Open the `public` folder.
+4. Double-click `index.html`.
 
-## Website structure
+For the best preview, use VS Code with the Live Server extension.
 
-```text
-Top-Deck-Site/
-├── .github/
-│   └── pull_request_template.md
-├── docs/
-│   └── BRANCHING.md
-├── public/
-│   ├── admin/
-│   ├── assets/
-│   │   ├── audio/
-│   │   ├── covers/
-│   │   └── images/
-│   ├── data/
-│   │   └── site-data.json
-│   ├── netlify/functions/
-│   ├── index.html
-│   ├── artists.html
-│   ├── music.html
-│   ├── radio.html
-│   ├── merch.html
-│   ├── booking.html
-│   ├── contact.html
-│   └── success.html
-├── .gitignore
-├── CONTRIBUTING.md
-├── netlify.toml
-└── README.md
-```
+## Netlify deployment
+Upload the full extracted project folder to Netlify.
 
-## Branches
-
-- `main` — stable production website deployed by Netlify
-- `develop` — active development and testing
-- `feature/...` — optional short-lived branches for individual features
-
-See [`docs/BRANCHING.md`](docs/BRANCHING.md) for the complete workflow.
-
-## Main content file
-
-Most editable website content is stored in:
-
-```text
-public/data/site-data.json
-```
-
-It controls artists, releases, radio settings, merchandise products, and news posts.
-
-## Admin content manager
-
-Open:
-
-```text
-public/admin/index.html
-```
-
-Use it to edit content and download a refreshed `site-data.json` file.
-
-## Local preview
-
-From the project folder:
-
-```bash
-cd public
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
-
-## Netlify configuration
-
-Netlify uses:
-
+Netlify settings:
 - Publish directory: `public`
 - Functions directory: `public/netlify/functions`
-- Production branch: `main`
 
-## Security
+## Content editing
+Edit:
+`public/data/site-data.json`
 
-Never commit passwords, Stripe secret keys, or `.env` files. Store secrets in Netlify environment variables.
+Admin editor:
+`public/admin/index.html`
 
-## Launch checklist
-
-- Add final logo and brand imagery
-- Add artist photos and release artwork
+## Before launch
+- Add your real logo
+- Add artist photos
+- Add cover art
 - Add streaming links
-- Confirm booking and contact information
-- Add radio stream URL or embed
-- Configure Stripe products and environment variables
-- Connect the final domain
+- Add your real booking email
+- Add your radio stream URL
+- Add Stripe price IDs and keys
+- Connect your domain

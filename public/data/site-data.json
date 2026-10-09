@@ -1,0 +1,384 @@
+{
+  "settings": {
+    "siteName": "Top Deck Music Group LLC",
+    "tagline": "Highest of the Highest",
+    "bookingEmail": "booking@topdeckmusicgroup.com",
+    "cities": [
+      "Plain Dealing",
+      "Bossier City",
+      "Shreveport"
+    ],
+    "socials": {
+      "instagram": "",
+      "youtube": "",
+      "tiktok": "",
+      "facebook": ""
+    }
+  },
+  "artists": [
+    {
+      "name": "Keel G",
+      "slug": "keel-g",
+      "bio": "Jakeel Blankenship, known as Keel G, is a Plain Dealing, Louisiana artist, motivator, and creative visionary. His music blends Southern hip-hop, real-life storytelling, motivation, and a self-made mindset built around purpose, growth, and family legacy.",
+      "image": "assets/artists/keel-g.jpg",
+      "featured": true,
+      "links": {
+        "spotify": "https://open.spotify.com/artist/4nEu9TpoTHxEytOn8s4w0Y",
+        "appleMusic": "",
+        "youtube": "",
+        "instagram": ""
+      },
+      "realName": "Jakeel Blankenship",
+      "hometown": "Plain Dealing, Louisiana",
+      "yearsActive": "19",
+      "genres": [
+        "Southern Hip-Hop",
+        "Motivational",
+        "Storytelling"
+      ],
+      "role": "Artist • Founder, Badhabits Entertainment • Co-Founder, Top Deck Music Group",
+      "story": "Keel G has been around music since childhood and began moving independently as a young teenager alongside family. His story is rooted in Plain Dealing, Louisiana, persistence without handouts, self-belief, and building something that can outlive him. His music turns real life into motivation: from the bottom to the top, from the mud to motion.",
+      "mission": "Create your own reality, follow your purpose, become your best self, and leave a legacy that proves what you imagine can become real.",
+      "highlights": [
+        "Founder of Badhabits Entertainment",
+        "Co-Founder of Top Deck Music Group LLC",
+        "Co-Founder of Top Deck Live",
+        "Co-Founder of The Gas Up Brand"
+      ],
+      "collaborations": [
+        "All Ace's",
+        "D-Money",
+        "YFR Rab",
+        "Hottboii BG",
+        "HataMaka Sheem",
+        "OTM White60y",
+        "Hustleboi",
+        "Bakstreet Blak",
+        "Supreme",
+        "Big YB",
+        "SRE Polkk",
+        "Oil Smith",
+        "CFN Chopp"
+      ]
+    },
+    {
+      "name": "All Ace's",
+      "slug": "all-aces",
+      "bio": "Adrion Blankenship, known as All Ace's, brings R&B, motivational rap, Southern roots, and an original perspective to Top Deck. A founder of Top Deck Music Group, his vision extends beyond music into creating opportunities, businesses, and community impact.",
+      "image": "assets/artists/all-aces.jpg",
+      "featured": true,
+      "links": {
+        "spotify": "https://open.spotify.com/artist/0eKZBEqMHPwTrVDTz6K6tQ",
+        "appleMusic": "https://music.apple.com/us/artist/all-aces/727767456",
+        "youtube": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "D-Money",
+      "slug": "d-money",
+      "bio": "Desmond Davidson, known as D-Money, is a Southern hip-hop artist with roots in Soso and Laurel, Mississippi and a home in Louisiana. His sound mixes motivation, storytelling, R&B influence, hustle, and real-life Southern perspective.",
+      "image": "assets/artists/d-money.jpg",
+      "featured": true,
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "YFR Rab",
+      "slug": "yfr-rab",
+      "bio": "YFR Rab is a Montgomery, Alabama artist and producer whose connection to music goes back to childhood. With close to 20 years of experience, his sound moves across rap, hip-hop, R&B, blues, and dance/bounce.",
+      "image": "assets/artists/yfr-rab.jpg",
+      "featured": true,
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "",
+        "instagram": ""
+      },
+      "realName": "",
+      "hometown": "Montgomery, Alabama",
+      "yearsActive": "Close to 20 years",
+      "genres": [
+        "Rap",
+        "Hip-Hop",
+        "R&B",
+        "Blues",
+        "Dance / Bounce"
+      ],
+      "role": "Artist • Producer • Top Deck Family",
+      "story": "YFR Rab has had a love for music since childhood and has been creating music for close to two decades. He and Keel G linked up in college and have remained close ever since. Rab also spent time serving in the military. Today, he is part of the Top Deck family as both an artist and one of the team’s producers.",
+      "mission": "Bring his range as an artist and producer to the Top Deck family while continuing to create across the sounds that shaped him.",
+      "highlights": [
+        "Top Deck family",
+        "Top Deck producer",
+        "Close to 20 years in music",
+        "Military service"
+      ],
+      "collaborations": [
+        "Keel G",
+        "All Ace's"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "title": "Circle K",
+      "artist": "Keel G x All Ace's",
+      "type": "Single",
+      "cover": "assets/releases/circle-k.jpg",
+      "status": "Live",
+      "date": "2026-05-14",
+      "links": {
+        "spotify": "https://open.spotify.com/album/7Lmcw5luKY5ucxKBBv1hRW",
+        "appleMusic": "https://music.apple.com/us/album/circle-k-feat-all-aces/1890231083?i=1890231084",
+        "youtube": "https://youtu.be/VKTrNSINWHE",
+        "audiomack": ""
+      },
+      "slug": "circle-k",
+      "story": "A real-life moment turned into motivation: getting recognized at Circle K became a reminder that consistent work gets seen and the grind can pay off.",
+      "producer": "Stanbeats",
+      "rating": "10/10"
+    },
+    {
+      "title": "Number 1",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/number-1.jpg",
+      "status": "Live",
+      "date": "2025-05-29",
+      "links": {
+        "spotify": "",
+        "appleMusic": "https://music.apple.com/us/album/number-1/1865573016?i=1865573017",
+        "youtube": "https://youtu.be/WOVfRbNMJCo",
+        "audiomack": ""
+      },
+      "slug": "number-1",
+      "story": "A record about striving to be number one and continuing to push toward the top.",
+      "producer": "Ayeahproducedit"
+    },
+    {
+      "title": "Big Dawg",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/big-dawg.jpg",
+      "status": "Live",
+      "date": "2025-02-05",
+      "links": {
+        "spotify": "",
+        "appleMusic": "https://music.apple.com/us/album/big-dawg/1873985731?i=1873985732",
+        "youtube": "https://youtu.be/dq7T46vFx6g",
+        "audiomack": ""
+      },
+      "slug": "big-dawg",
+      "story": "A bossed-up Top Deck statement built around confidence, presence, and standing on business.",
+      "producer": "Ayereek"
+    },
+    {
+      "title": "Difference",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/difference.jpg",
+      "status": "Live",
+      "date": "2024-05-02",
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "https://youtu.be/vQNlxOPnKVw",
+        "audiomack": ""
+      },
+      "slug": "difference",
+      "story": "A heartfelt record about growing up, real life, and embracing what makes you different."
+    },
+    {
+      "title": "Out the Mud",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/out-the-mud.jpg",
+      "status": "Live",
+      "date": "2024-01-11",
+      "links": {
+        "spotify": "",
+        "appleMusic": "https://music.apple.com/us/album/out-the-mud-feat-keelg/1714636457?i=1714636458",
+        "youtube": "https://youtu.be/xCHiNns9c64",
+        "audiomack": ""
+      },
+      "slug": "out-the-mud",
+      "story": "A come-up record about consistency, progress, and building from the bottom.",
+      "rating": "9.5/10"
+    },
+    {
+      "title": "Beneficial",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/beneficial.jpg",
+      "status": "Live",
+      "date": "2023-12-21",
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "https://youtu.be/jCEob1_XSCQ",
+        "audiomack": ""
+      },
+      "slug": "beneficial",
+      "story": "Self-motivation and purpose: a reminder to move with intention and know you have been official since a lil one.",
+      "producer": "Medusa Beats",
+      "rating": "8.0/10"
+    },
+    {
+      "title": "Purpose",
+      "artist": "Keel G x All Ace's",
+      "type": "Single",
+      "cover": "assets/releases/purpose.jpg",
+      "status": "Live",
+      "date": "2022-02-22",
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "https://youtu.be/H6vyN4KLmKM",
+        "audiomack": ""
+      },
+      "slug": "purpose",
+      "story": "A reminder that everybody has a purpose and a story. Create your own reality and follow what you are here to do.",
+      "rating": "8.0/10"
+    },
+    {
+      "title": "Nonchalant",
+      "artist": "Keel G",
+      "type": "Single",
+      "cover": "assets/releases/nonchalant.jpg",
+      "status": "Live",
+      "date": "2021-10-25",
+      "links": {
+        "spotify": "https://open.spotify.com/track/1I7paq7dUHE0XdCDghAaiG",
+        "appleMusic": "https://music.apple.com/us/album/nonchalant/6789797681?i=6789797682",
+        "youtube": "https://youtu.be/Tr3xK63-A18",
+        "audiomack": ""
+      },
+      "slug": "nonchalant",
+      "story": "A confident, laid-back catalog record from the Won’t Be Denied era.",
+      "rating": "9.4/10"
+    },
+    {
+      "title": "Blood Brothers",
+      "artist": "Keel G x All Ace's",
+      "type": "Album",
+      "cover": "",
+      "status": "Coming Soon",
+      "date": "",
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "",
+        "audiomack": ""
+      }
+    },
+    {
+      "title": "Won't Be Denied pt. 2",
+      "artist": "Keel G",
+      "type": "Mixtape",
+      "cover": "",
+      "status": "Catalog",
+      "date": "",
+      "links": {
+        "spotify": "",
+        "appleMusic": "",
+        "youtube": "",
+        "audiomack": ""
+      }
+    }
+  ],
+  "radio": {
+    "stationName": "Top Deck Radio",
+    "status": "Building the Signal",
+    "nowPlaying": "Top Deck Radio",
+    "tagline": "Independent music. Real stories. Southern culture.",
+    "streamUrl": "",
+    "embedUrl": "",
+    "shows": [
+      {
+        "name": "Top Deck Rotation",
+        "time": "Featured Programming",
+        "description": "Top Deck releases, independent music, street stories, and records worth hearing."
+      },
+      {
+        "name": "Artist Spotlight",
+        "time": "Coming Soon",
+        "description": "A dedicated lane for artist stories, interviews, new releases, and the people behind the music."
+      }
+    ]
+  },
+  "merch": [
+    {
+      "id": "td-logo-tee",
+      "name": "Top Deck Logo Tee",
+      "description": "Official Top Deck Music Group logo tee.",
+      "price": 30.0,
+      "currency": "usd",
+      "status": "Coming Soon",
+      "image": "",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "stripePriceId": "price_replace_with_stripe_id"
+    },
+    {
+      "id": "td-hoodie",
+      "name": "Top Deck Hoodie",
+      "description": "Heavyweight hoodie for the movement.",
+      "price": 55.0,
+      "currency": "usd",
+      "status": "Coming Soon",
+      "image": "",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "stripePriceId": "price_replace_with_stripe_id"
+    },
+    {
+      "id": "td-radio-tee",
+      "name": "Top Deck Radio Tee",
+      "description": "Top Deck Radio official tee.",
+      "price": 30.0,
+      "currency": "usd",
+      "status": "Coming Soon",
+      "image": "",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "stripePriceId": "price_replace_with_stripe_id"
+    }
+  ],
+  "news": [
+    {
+      "title": "Highest of the Highest",
+      "category": "Top Deck",
+      "date": "2026-10-02",
+      "excerpt": "Top Deck Music Group continues building an independent music ecosystem around artists, releases, radio, visuals, business, and legacy."
+    },
+    {
+      "title": "Circle K — Keel G x All Ace's",
+      "category": "Release",
+      "date": "2026-05-14",
+      "excerpt": "Circle K turns a real-life fan encounter into a record about consistency, recognition, and believing the grind will pay off."
+    }
+  ]
+}

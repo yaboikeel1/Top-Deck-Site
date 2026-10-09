@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Headquarters | Top Deck Music Group</title>
+<meta name="description" content="Connect with Top Deck Music Group for general inquiries, media, partnerships, music submissions, and business opportunities.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="site-header"><a class="logo" href="index.html"><span class="logo-mark">TD</span><span class="logo-text" data-site-name>Top Deck Music Group</span></a><nav class="nav"><a href="music.html">Music</a><a href="radio.html">Radio</a><a href="artists.html">Artists</a><a href="merch.html">Merch</a><a href="booking.html">Booking</a><a class="active" href="contact.html">Contact</a></nav><a class="header-btn" href="#headquarters-contact">Tap In</a></header>
+<main class="hq-experience">
+<section class="hq-hero"><div class="hq-hero-copy"><p class="eyebrow">Top Deck Headquarters</p><h1>TAP<br><span>IN.</span></h1><p>One movement. Different doors. Whether you're reaching out about music, media, business, collaboration, or the culture—start here and we'll point the conversation in the right direction.</p><div class="hq-actions"><a class="primary" href="#headquarters-contact">Contact Headquarters</a><a class="secondary" href="booking.html">Booking & Business</a></div></div>
+<div class="hq-terminal"><div class="terminal-bar"><span>TD // HQ</span><i></i><strong>CONNECTION OPEN</strong></div><div class="terminal-crown">♛</div><p>TOP DECK MUSIC GROUP</p><h2>HEADQUARTERS</h2><div class="terminal-lines"><span>PLAIN DEALING</span><span>BOSSIER CITY</span><span>SHREVEPORT</span></div><small>LOUISIANA ROOTS // NO CEILING</small></div></section>
+<section class="hq-route"><p>CHOOSE YOUR LANE</p><span>↓</span></section>
+<section class="section hq-lanes"><div class="section-head"><div><p class="eyebrow">Connect With The Movement</p><h2>Where should this go?</h2><p class="page-copy">Choose the lane that best matches why you're reaching out.</p></div></div>
+<div class="hq-lane-grid">
+<article><span>01</span><h3>General</h3><p>Questions, community messages, site feedback, and general Top Deck inquiries.</p><a href="#headquarters-contact" data-contact-type="General Inquiry">Contact HQ →</a></article>
+<article><span>02</span><h3>Media & Press</h3><p>Interviews, podcasts, editorial, press coverage, and media-related conversations.</p><a href="#headquarters-contact" data-contact-type="Media / Press">Media Inquiry →</a></article>
+<article><span>03</span><h3>Music Submission</h3><p>Send information about release-ready music you'd like Top Deck to know about.</p><a href="#headquarters-contact" data-contact-type="Music Submission">Submit Music Info →</a></article>
+<article><span>04</span><h3>Partnership</h3><p>Brand ideas, community opportunities, sponsorship conversations, and strategic partnerships.</p><a href="#headquarters-contact" data-contact-type="Partnership">Partnership Inquiry →</a></article>
+<article><span>05</span><h3>Booking</h3><p>Shows, appearances, features, collaborations, interviews, and professional opportunities.</p><a href="booking.html">Go To Booking →</a></article>
+<article><span>06</span><h3>Top Deck Radio</h3><p>Song requests, artist submissions, interview requests, and radio-related ideas.</p><a href="radio.html#request">Go To Radio →</a></article>
+</div></section>
+<section class="section hq-identity"><div class="hq-statement"><p class="eyebrow">From Louisiana Outward</p><h2>ROOTED HERE.<br>BUILT TO REACH<br><span>EVERYWHERE.</span></h2><p>Top Deck carries its roots with it while building music, culture, opportunity, and legacy beyond any one city.</p></div><div class="hq-map-type"><strong>PLAIN DEALING</strong><i>→</i><strong>BOSSIER CITY</strong><i>→</i><strong>SHREVEPORT</strong><span>LOUISIANA</span></div></section>
+<section class="section hq-contact" id="headquarters-contact"><div class="hq-contact-copy"><p class="eyebrow">Direct Line</p><h2>SEND IT TO<br>HEADQUARTERS.</h2><p>Give us enough detail to understand the conversation. For formal performance, appearance, feature, interview, or business requests, the Booking page is the fastest lane.</p><a class="profile-link" href="booking.html">Professional booking request →</a></div>
+<div class="booking-card hq-form-card"><form id="contactForm" class="form" name="contact" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="contact">
+<label>Name<input name="name" placeholder="Your name" required></label>
+<label>Email<input name="email" type="email" placeholder="Email address" required></label>
+<label>Reason For Contact<select name="type" required><option value="">Choose a lane</option><option>General Inquiry</option><option>Media / Press</option><option>Music Submission</option><option>Partnership</option><option>Website / Other</option></select></label>
+<label>Subject<input name="subject" placeholder="What is this about?" required></label>
+<label class="form-wide">Message<textarea name="message" placeholder="Tell Top Deck what you want us to know." required></textarea></label>
+<button class="primary form-wide" type="submit">Send To Headquarters</button><p id="contactStatus" class="muted form-wide"></p></form></div></section>
+<section class="hq-finale"><span>♛</span><p>Believe. Become. Purpose. Top Deck.</p><h2>THE DOOR<br>IS OPEN.</h2><strong>REACH THE TOP DECK.</strong></section>
+</main><footer class="footer"><p>© 2026 <span data-site-name>Top Deck Music Group LLC</span>. All rights reserved.</p><p data-cities>Plain Dealing • Bossier City • Shreveport</p></footer>
+<script src="app.js"></script><script>
+document.querySelectorAll("[data-contact-type]").forEach(function(link){link.addEventListener("click",function(){var s=document.querySelector('#contactForm select[name="type"]');if(s)s.value=this.dataset.contactType;});});
+document.getElementById("contactForm")?.addEventListener("submit",async function(e){e.preventDefault();var status=document.getElementById("contactStatus");status.textContent="Sending...";try{var body=new URLSearchParams(new FormData(this)).toString();var r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body});if(!r.ok)throw new Error("submit");this.reset();status.textContent="Submitted. Top Deck Headquarters received your message.";}catch(err){status.textContent="Submission could not be completed here. Try again after the site is deployed through Netlify.";}});</script></body></html>

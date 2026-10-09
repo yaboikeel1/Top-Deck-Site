@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking & Business | Top Deck Music Group</title>
+<meta name="description" content="Book Top Deck Music Group artists for performances, appearances, features, interviews, collaborations, and business opportunities.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="site-header"><a class="logo" href="index.html"><span class="logo-mark">TD</span><span class="logo-text" data-site-name>Top Deck Music Group</span></a><nav class="nav"><a href="music.html">Music</a><a href="radio.html">Radio</a><a href="artists.html">Artists</a><a href="merch.html">Merch</a><a class="active" href="booking.html">Booking</a><a href="contact.html">Contact</a></nav><a class="header-btn" href="#booking-request">Book Now</a></header>
+<main class="business-experience">
+<section class="business-hero">
+ <div class="business-hero-copy"><p class="eyebrow">Booking • Features • Business</p><h1>LET'S<br><span>BUILD.</span></h1><p>Bring Top Deck to the stage, studio, screen, or table. Send the details and give the team what we need to evaluate the opportunity.</p><div class="business-actions"><a class="primary" href="#booking-request">Start a Request</a><a class="secondary" href="artists.html">Explore Artists</a></div></div>
+ <div class="business-stamp"><span>♛</span><p>TOP DECK MUSIC GROUP</p><strong>PROFESSIONAL INQUIRIES</strong><small>HIGHEST OF THE HIGHEST</small></div>
+</section>
+<section class="section opportunity-section"><div class="section-head"><div><p class="eyebrow">Work With Top Deck</p><h2>Choose the opportunity.</h2><p class="page-copy">The more detail you send, the easier it is for the team to review your request.</p></div></div>
+<div class="opportunity-grid">
+ <article><span>01</span><h3>Live Performance</h3><p>Shows, concerts, showcases, festivals, club appearances, and other live opportunities.</p><a href="#booking-request" data-booking-type="Performance">Request Performance →</a></article>
+ <article><span>02</span><h3>Appearance</h3><p>Hosted events, brand appearances, community events, and other in-person opportunities.</p><a href="#booking-request" data-booking-type="Appearance">Request Appearance →</a></article>
+ <article><span>03</span><h3>Feature / Collaboration</h3><p>Song features, creative collaborations, and artist-to-artist opportunities.</p><a href="#booking-request" data-booking-type="Feature / Collaboration">Request Collaboration →</a></article>
+ <article><span>04</span><h3>Media / Interview</h3><p>Podcasts, radio, press, video interviews, editorial, and media requests.</p><a href="#booking-request" data-booking-type="Media / Interview">Request Interview →</a></article>
+ <article><span>05</span><h3>Business / Partnership</h3><p>Brand partnerships, sponsorship conversations, licensing discussions, and business opportunities.</p><a href="#booking-request" data-booking-type="Business / Partnership">Business Inquiry →</a></article>
+ <article><span>06</span><h3>Other Opportunity</h3><p>Have something different in mind? Send the concept and let the team review it.</p><a href="#booking-request" data-booking-type="Other">Send Opportunity →</a></article>
+</div></section>
+<section class="section business-process"><div class="section-head"><div><p class="eyebrow">The Process</p><h2>Clear details. Serious opportunities.</h2></div></div>
+<div class="process-line"><article><b>1</b><h3>Send the Request</h3><p>Tell us who you want, what the opportunity is, where it happens, and the key details.</p></article><article><b>2</b><h3>Team Review</h3><p>Top Deck reviews the request, timing, scope, and fit before moving forward.</p></article><article><b>3</b><h3>Next Steps</h3><p>If the opportunity is a fit, the team can follow up to discuss availability and business details.</p></article></div>
+</section>
+<section class="section booking-premium" id="booking-request"><div class="booking-intro"><p class="eyebrow">Official Request</p><h2>Bring Top Deck<br>into the room.</h2><p>Use this form for legitimate booking and business inquiries. Include as much information as possible so the team can evaluate the opportunity.</p><div class="booking-note"><strong>Helpful details</strong><span>Artist requested • Date • City/venue • Opportunity type • Budget or offer details • Contact information</span></div></div>
+<div class="booking-card booking-card-premium"><form id="bookingForm" class="form" name="booking" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="booking">
+<label>Your Name<input name="name" placeholder="Name / Organization" required></label>
+<label>Email<input name="email" type="email" placeholder="Email address" required></label>
+<label>Phone<input name="phone" placeholder="Phone number"></label>
+<label>Artist / Talent Requested<select name="artist"><option value="">Select artist or team</option><option>Keel G</option><option>All Ace's</option><option>D-Money</option><option>YFR Rab</option><option>Top Deck Music Group / Multiple Artists</option></select></label>
+<label>Opportunity Type<select name="type" required><option value="">Select request type</option><option>Performance</option><option>Appearance</option><option>Feature / Collaboration</option><option>Media / Interview</option><option>Business / Partnership</option><option>Other</option></select></label>
+<label>Event / Project Date<input name="date" type="date"></label>
+<label>City / State<input name="location" placeholder="City / State"></label>
+<label>Venue / Company<input name="venue" placeholder="Venue, brand, company, or platform"></label>
+<label>Budget / Offer<input name="budget" placeholder="Budget or offer details"></label>
+<label class="form-wide">Opportunity Details<textarea name="message" placeholder="Tell us about the event, project, audience, expectations, and anything else the team should know." required></textarea></label>
+<button class="primary form-wide" type="submit">Send Official Request</button><p id="formStatus" class="muted form-wide"></p></form></div></section>
+<section class="business-finale"><span>♛</span><p>Music. Culture. Opportunity. Legacy.</p><h2>LET'S BUILD<br>SOMETHING REAL.</h2><strong>REACH THE TOP DECK.</strong></section>
+</main><footer class="footer"><p>© 2026 <span data-site-name>Top Deck Music Group LLC</span>. All rights reserved.</p><p data-cities>Plain Dealing • Bossier City • Shreveport</p></footer>
+<script src="app.js"></script><script src="booking.js"></script><script>
+document.querySelectorAll("[data-booking-type]").forEach(function(link){link.addEventListener("click",function(){var select=document.querySelector('select[name="type"]');if(select){select.value=this.dataset.bookingType;}});});
+</script></body></html>

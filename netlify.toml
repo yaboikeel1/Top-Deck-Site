@@ -1,6 +1,6 @@
 [build]
-  publish = "."
-  functions = "."
+  publish = "public"
+  functions = "public/netlify/functions"
 
 [[redirects]]
   from = "/admin"
